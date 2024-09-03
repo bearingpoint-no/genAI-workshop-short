@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from hackathon.paths import DOTENV_PATH
 
 
-def upload_env_vars(
+def load_env_vars(
     upload_type: Literal[".env", "interactive"] = "interactive",
     use_defaults: bool = True,
     reupload_if_in_colab=False
