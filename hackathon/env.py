@@ -1,6 +1,9 @@
 import os
+
 from typing import Literal
 from dotenv import load_dotenv
+from getpass import getpass
+
 from hackathon.paths import DOTENV_PATH
 
 
@@ -24,7 +27,10 @@ def load_env(
                         filename=DOTENV_PATH
                     )
                 case "interactive":
-                    AZURE_API_KEY = input("Please enter your Azure API key: ")
+                    AZURE_OPENAI_API_KEY = getpass(
+                        prompt="Please enter your Azure API key: "
+                    )
+
                     if use_defaults:
                         AZURE_OPENAI_ENDPOINT = "https://be-no-genai-courses-models-located-in-sweden.openai.azure.com"  # noqa E501
                         OPENAI_API_VERSION = "2024-07-01-preview"
@@ -34,7 +40,7 @@ def load_env(
                         OPENAI_API_VERSION = input("Please enter your OpenAI API version: ")  # noqa E501
                         MODEL_DEPLOYMENT_NAME = input("Please enter your model deployment name: ")  # noqa E501
 
-                    os.environ["AZURE_API_KEY"] = AZURE_API_KEY
+                    os.environ["AZURE_OPENAI_API_KEY"] = AZURE_OPENAI_API_KEY
                     os.environ["AZURE_OPENAI_ENDPOINT"] = AZURE_OPENAI_ENDPOINT
                     os.environ["OPENAI_API_VERSION"] = OPENAI_API_VERSION
                     os.environ["MODEL_DEPLOYMENT_NAME"] = MODEL_DEPLOYMENT_NAME
