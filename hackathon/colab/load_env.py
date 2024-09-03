@@ -4,16 +4,19 @@ from dotenv import load_dotenv
 from hackathon.paths import DOTENV_PATH
 
 
-def load_dotenv_file(
-    from_type: Literal[".env", "interactive"] = "interactive",
+def upload_env_vars(
+    upload_type: Literal[".env", "interactive"] = "interactive",
     use_defaults: bool = True,
-    reupload_dotenv_colab=False
+    reupload_if_in_colab=False
 ):
-    is_in_colab = 'google.colab' in str(get_ipython())  # noqa F821
+    try:
+        is_in_colab = 'google.colab' in str(get_ipython())  # noqa F821
+    except NameError:
+        is_in_colab = False
 
     if is_in_colab:
-        if not os.path.exists(DOTENV_PATH) or reupload_dotenv_colab:
-            match(from_type):
+        if not os.path.exists(DOTENV_PATH) or reupload_if_in_colab:
+            match(upload_type):
                 case ".env":
                     print("Please upload the .env file. We will rename it correctly, so don't worry about that.")  # noqa E501
                     from google.colab import files  # noqa E402
@@ -45,7 +48,7 @@ def load_dotenv_file(
                         f.write(f"\nOPENAI_API_VERSION = '{OPENAI_API_VERSION}'")  # noqa E501 
                         f.write(f"\nMODEL_DEPLOYMENT_NAME = '{MODEL_DEPLOYMENT_NAME}'")  # noqa E501
                 case _:
-                    raise ValueError(f"Invalid value for `from_type`: {from_type}")  # noqa E501
+                    raise ValueError(f"Invalid value for `upload_type`: {upload_type}")  # noqa E501
 
         _ = load_dotenv(DOTENV_PATH)
     else:
