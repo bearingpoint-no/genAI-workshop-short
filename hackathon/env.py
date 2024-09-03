@@ -59,7 +59,7 @@ def load_env(
                     #     f.write(f"\nOPENAI_API_VERSION = '{OPENAI_API_VERSION}'")  # noqa E501 
                     #     f.write(f"\nMODEL_DEPLOYMENT_NAME = '{MODEL_DEPLOYMENT_NAME}'")  # noqa E501
                 case _:
-                    raise ValueError(f"Invalid value for `upload_type`: {upload_type}")  # noqa E501
+                    raise ValueError(f"Invalid value for `upload_type`: {load_type}")  # noqa E501
 
         # _ = load_dotenv(DOTENV_PATH)
     else:
