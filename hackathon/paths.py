@@ -5,5 +5,5 @@ _REPOSITORY_DIR = os.path.dirname(_PACKAGE_DIR)
 
 EVALUATION_DIR = os.path.join(_PACKAGE_DIR, "evaluation")
 
-REQUIREMENTS_COLAB_PATH = os.path.join(_REPOSITORY_DIR, "requirements_colab.txt")
+REQUIREMENTS_COLAB_PATH = os.path.join(_REPOSITORY_DIR, "requirements_colab.txt")  # noqa E501
 DOTENV_PATH = os.path.join(_REPOSITORY_DIR, ".env")
