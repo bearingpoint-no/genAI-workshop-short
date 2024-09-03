@@ -1,29 +1,31 @@
-import os
 from dotenv import load_dotenv, find_dotenv
-
-
-def say_hello():
-    print("hello")
-
-
-# This function can only be run by importing to a IPython environment
+from hackathon.paths import DOTENV_PATH
+import os
 
 
 def load_dotenv_file(reupload_dotenv_colab=False):
-    in_colab = 'google.colab' in str(get_ipython())
-    PATH_REPOSITORY = "/content/genaiworkshop2"
-    PATH_LESSONS = os.path.join(PATH_REPOSITORY, "lessons")
+    is_in_colab = 'google.colab' in str(get_ipython())
+    # PATH_REPOSITORY = "/content/genAI-workshop2"
+    # PATH_LESSONS = os.path.join(PATH_REPOSITORY, "lessons")
 
-    if in_colab:
-        dotenv_file = find_dotenv() or (reupload_dotenv_colab and files.upload())
+    if is_in_colab:
+        if reupload_dotenv_colab:
+            dotenv_file = False
+        else:
+            dotenv_file = find_dotenv()
 
         if not dotenv_file:
+            # %cd {PATH_REPOSITORY}
             print("Please upload the .env file")
             from google.colab import files
-            %cd {PATH_REPOSITORY}
-            dotenv_file = files.upload()
-            os.rename(dotenv_file, os.path.join(PATH_REPOSITORY, "hei.env"))
-            %cd {PATH_LESSONS}
+            print(DOTENV_PATH)
+            files.upload_file(
+                filename=DOTENV_PATH
+            )
+            # dotenv_file_upload = files.upload()
+            # filename, _ = next(iter(dotenv_file_upload.items()))
+            # os.rename(filename, ".env")
+            # %cd {PATH_LESSONS}
 
         _ = load_dotenv(dotenv_file)
     else:
