@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "genai-workshop-short"
+name = "be-genai-workshop-short"
 packages = [
     { include = "hackathon" }
 ]
