@@ -14,14 +14,14 @@ tiktoken = "^0.6.0"
 openpyxl = "^3.1.2"
 pandas = "^2.2.2"
 numpy = "^2.1.0"
-pprintpp = "^0.4.0"
-devtools = "^0.12.2"
 langfuse = "^2.45.1"
 matplotlib = "^3.9.2"
 seaborn = "^0.13.2"
-xlsxwriter = "^3.2.0"
 ipython = "^8.27.0"
 
+
+[tool.poetry.group.dev.dependencies]
+langfuse = "^2.45.2"
 
 [build-system]
 requires = ["poetry-core"]

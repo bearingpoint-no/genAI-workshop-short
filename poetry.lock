@@ -430,22 +430,6 @@ files = [
 ]
 
 [[package]]
-name = "devtools"
-version = "0.12.2"
-description = "Python's missing debug print command, and more."
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "devtools-0.12.2-py3-none-any.whl", hash = "sha256:c366e3de1df4cdd635f1ad8cbcd3af01a384d7abda71900e68d43b04eb6aaca7"},
-    {file = "devtools-0.12.2.tar.gz", hash = "sha256:efceab184cb35e3a11fa8e602cc4fadacaa2e859e920fc6f87bf130b69885507"},
-]
-
-[package.dependencies]
-asttokens = ">=2.0.0,<3.0.0"
-executing = ">=1.1.1"
-pygments = ">=2.15.0"
-
-[[package]]
 name = "distro"
 version = "1.9.0"
 description = "Distro - an OS platform information API"
@@ -930,13 +914,13 @@ files = [
 
 [[package]]
 name = "langfuse"
-version = "2.45.1"
+version = "2.45.2"
 description = "A client library for accessing langfuse"
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langfuse-2.45.1-py3-none-any.whl", hash = "sha256:ef82c2ade99a4990a3d566d73258a904d0e0d83abb20ba5687ae45b96e67d719"},
-    {file = "langfuse-2.45.1.tar.gz", hash = "sha256:db53a3169a147a120efbe3ed6eb844c1a56f5f2a3a72769b5892912f830a0d53"},
+    {file = "langfuse-2.45.2-py3-none-any.whl", hash = "sha256:7fc928a78804ab10d57a6cca4814f3a35747e115f726bcd14ea820ca19dcd5cb"},
+    {file = "langfuse-2.45.2.tar.gz", hash = "sha256:a9bc03a3f266955116cfe6314d66cb47f582780ade35ba78d2ad71b4d55acde0"},
 ]
 
 [package.dependencies]
@@ -1364,17 +1348,6 @@ files = [
 docs = ["furo (>=2023.9.10)", "proselint (>=0.13)", "sphinx (>=7.2.6)", "sphinx-autodoc-typehints (>=1.25.2)"]
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4.3)", "pytest-cov (>=4.1)", "pytest-mock (>=3.12)"]
 type = ["mypy (>=1.8)"]
-
-[[package]]
-name = "pprintpp"
-version = "0.4.0"
-description = "A drop-in replacement for pprint that's actually pretty"
-optional = false
-python-versions = "*"
-files = [
-    {file = "pprintpp-0.4.0-py2.py3-none-any.whl", hash = "sha256:b6b4dcdd0c0c0d75e4d7b2f21a9e933e5b2ce62b26e1a54537f9651ae5a5c01d"},
-    {file = "pprintpp-0.4.0.tar.gz", hash = "sha256:ea826108e2c7f49dc6d66c752973c3fc9749142a798d6b254e1e301cfdbc6403"},
-]
 
 [[package]]
 name = "prompt-toolkit"
@@ -2196,18 +2169,7 @@ files = [
     {file = "wrapt-1.16.0.tar.gz", hash = "sha256:5f370f952971e7d17c7d1ead40e49f32345a7f7a5373571ef44d800d06b1899d"},
 ]
 
-[[package]]
-name = "xlsxwriter"
-version = "3.2.0"
-description = "A Python module for creating Excel XLSX files."
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "XlsxWriter-3.2.0-py3-none-any.whl", hash = "sha256:ecfd5405b3e0e228219bcaf24c2ca0915e012ca9464a14048021d21a995d490e"},
-    {file = "XlsxWriter-3.2.0.tar.gz", hash = "sha256:9977d0c661a72866a61f9f7a809e25ebbb0fb7036baa3b9fe74afcfca6b3cb8c"},
-]
-
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "17fd453663f350099d517d3fd49d1b491f95df9a41aa41f83cc60129bbe0f0da"
+content-hash = "752422578e23782bf4605b15270012ab7e9600bdc816b3d841cb1fb6f69b2168"
