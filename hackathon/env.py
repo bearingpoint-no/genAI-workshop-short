@@ -8,21 +8,23 @@ from hackathon.paths import DOTENV_PATH
 
 
 def load_default_env(verbose: bool = False):
+    raise DeprecationWarning("This function is deprecated. Please use `load_env` instead.")  # noqa E501
     AZURE_OPENAI_ENDPOINT = "https://be-no-genai-courses-models-located-in-sweden.openai.azure.com"  # noqa E501
     OPENAI_API_VERSION = "2024-07-01-preview"
     MODEL_DEPLOYMENT_NAME = "gpt-4o-mini-for-new-hires"
     os.environ["AZURE_OPENAI_ENDPOINT"] = AZURE_OPENAI_ENDPOINT
     os.environ["OPENAI_API_VERSION"] = OPENAI_API_VERSION
     os.environ["MODEL_DEPLOYMENT_NAME"] = MODEL_DEPLOYMENT_NAME
+
     print("Added defaults for environment variables: 'AZURE_OPENAI_ENDPOINT', 'OPENAI_API_VERSION', and 'MODEL_DEPLOYMENT_NAME'")  # noqa E501
 
 
 def load_env(
     load_type: Literal[".env", "interactive"] = "interactive",
     use_defaults: bool = True,
-    override=False
+    override=False,
+    verbose=False,
 ):
-    raise DeprecationWarning("This function is deprecated")
     try:
         is_in_colab = 'google.colab' in str(get_ipython())  # noqa F821
     except NameError:
@@ -56,6 +58,9 @@ def load_env(
                     os.environ["OPENAI_API_VERSION"] = OPENAI_API_VERSION
                     os.environ["MODEL_DEPLOYMENT_NAME"] = MODEL_DEPLOYMENT_NAME
 
+                    if verbose:
+                        print("Successfully set the following environment variables: 'AZURE_OPENAI_API_KEY', 'AZURE_OPENAI_ENDPOINT', 'OPENAI_API_VERSION', and 'MODEL_DEPLOYMENT_NAME'")  # noqa E501
+
                     # # Delete the previous .env file using os.remove
                     # if os.path.exists(DOTENV_PATH):
                     #     os.remove(DOTENV_PATH)
@@ -78,3 +83,12 @@ def load_env(
             _ = load_dotenv(DOTENV_PATH, override=override)
         else:
             raise RuntimeError("No .env file found")
+
+
+def test(test_input: bool = False, test_getpass: bool = False, test_maskpass: bool = False):  # noqa E501
+    if test_input:
+        text = input("Enter text: ")
+        print(f"Text from 'input': {text}")
+    if test_getpass:
+        text = getpass("Enter text: ")
+        print(f"Text from 'getpass': {text}")
