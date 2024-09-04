@@ -7,13 +7,14 @@ from getpass import getpass
 from hackathon.paths import DOTENV_PATH
 
 
-def load_default_env():
+def load_default_env(verbose: bool = False):
     AZURE_OPENAI_ENDPOINT = "https://be-no-genai-courses-models-located-in-sweden.openai.azure.com"  # noqa E501
     OPENAI_API_VERSION = "2024-07-01-preview"
     MODEL_DEPLOYMENT_NAME = "gpt-4o-mini-for-new-hires"
     os.environ["AZURE_OPENAI_ENDPOINT"] = AZURE_OPENAI_ENDPOINT
     os.environ["OPENAI_API_VERSION"] = OPENAI_API_VERSION
     os.environ["MODEL_DEPLOYMENT_NAME"] = MODEL_DEPLOYMENT_NAME
+    print("Added defaults for environment variables: 'AZURE_OPENAI_ENDPOINT', 'OPENAI_API_VERSION', and 'MODEL_DEPLOYMENT_NAME'")  # noqa E501
 
 
 def load_env(
